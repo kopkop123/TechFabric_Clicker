@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <img class="logo" src="./img/logo.png" alt="Clicker Logo">
+    <main id="main" class="container">
+        <header class="header">
+            <div id="playerInfo" class="player hidden">
+                <span id="playerName" class="player__name"></span>
+                <span id="playerScore" data-val="Score: " class="player__score"></span>
+                <span id="playerLevel" data-val="Level: " class="player__level"></span>
+                <span id="monsterHealth" data-val="HP: " class="player__monster-health"></span>
+            </div>
+
+            <button id="signUp" class="button" type="button">Sign Up</button>
+            <button id="signIn" class="button" type="button">Sign In</button>
+            <button id="logout" class="button hidden" type="button">Logout</button>
+        </header>
+
+        <section id="registrationContainer" class="register hidden">
+            <form id="registrationForm" class="register__form">
+                <h2 class="register__title">Registration</h2>
+
+                <div class="register__row">
+                    <label class="register__label" for="fullname">Full Name</label>
+                    <input class="register__input" type="text" id="fullname" name="fullname" required>
+                </div>
+
+                <div class="register__row">
+                    <label class="register__label" for="password">Password</label>
+                    <input class="register__input" type="password" id="password" name="password" required>
+                </div>
+
+                <div class="register__row">
+                    <label class="register__label" for="email">Email</label>
+                    <input class="register__input" type="email" id="email" name="email" required>
+                </div>
+
+                <div class="register__row">
+                    <button class="button" type="submit">Registration</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="loginContainer" class="login hidden">
+            <form id="loginForm" class="login__form">
+                <h2 class="login__title">Login</h2>
+
+                <div class="login__row">
+                    <label class="login__label" for="email">Email</label>
+                    <input class="login__input" type="email" id="email" name="email" required>
+                </div>
+
+                <div class="login__row">
+                    <label class="login__label" for="password">Password</label>
+                    <input class="login__input" type="password" id="password" name="password" required>
+                </div>
+
+                <div class="login__row">
+                    <button class="button" type="submit">Login</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="error" class="error hidden"></div>
+
+        <section id="game" class="game hidden">
+            <div id="attack" class="game__enemy"></div>
+        </section>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal__content">
+                <h2 class="modal__title">Congratulations!</h2>
+                <p id="modalDescription" class="modal__description"></p>
+                <button id="modalAction" type="button" class="button modal__button">Go</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="./scripts/index.js"></script>
+</body>
+</html>

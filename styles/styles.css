@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.logo {
+    margin: 10px auto;
+    display: block;
+    height: 150px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    min-height: 700px;
+    position: relative;
+    background: #2bc4c5; /* Old browsers */
+    background: -moz-linear-gradient(top,  #2bc4c5 0%, #239c9e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #2bc4c5 0%,#239c9e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #2bc4c5 0%,#239c9e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.container--level_1 {
+    background: url(../img/level_1.jpg) no-repeat;
+    background-position: right top;
+}
+
+.container--level_1 .game__enemy {
+    background-image: url(../img/enemy_1.png);
+}
+
+.container--level_2 {
+    background: url(../img/level_2.jpg) no-repeat;
+    background-size: cover;
+}
+
+.container--level_2 .game__enemy {
+    background-image: url(../img/enemy_2.png);
+}
+
+.container--level_3 {
+    background: url(../img/level_3.png) no-repeat;
+    background-position: right top;
+}
+
+.container--level_3 .game__enemy {
+    background-image: url(../img/enemy_3.png);
+}
+
+.container--level_4 {
+    background: url(../img/level_4.jpg) no-repeat;
+    background-position: -50px top;
+    background-size: cover;
+}
+
+.container--level_4 .game__enemy {
+    background-image: url(../img/enemy_4.png);
+}
+
+.container--level_5 {
+    background: url(../img/level_5.jpg) no-repeat;
+    background-size: cover;
+}
+
+.container--level_5 .game__enemy {
+    background-image: url(../img/enemy_5.png);
+}
+
+.container--level_1 .header,
+.container--level_2 .header,
+.container--level_3 .header,
+.container--level_4 .header,
+.container--level_5 .header {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.button {
+    background: #45d724;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #4e4e4e;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all .3s ease;
+}
+
+.button::selection {
+    background: transparent;
+}
+
+.button + .button {
+    margin-left: 10px;
+}
+
+.button:hover {
+    background: #feb92f;
+    border-color: #fd3b1e;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 10px 20px;;
+}
+
+.register__form,
+.login__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 40%;
+}
+
+.register__title,
+.login__title {
+    text-align: center;
+    color: #fff;
+}
+
+.register__row,
+.login__row {
+    margin-bottom: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__input,
+.login__input {
+    flex: 1;
+    outline: none;
+    border: 1px solid #4e4e4e;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.register__label,
+.login__label {
+    flex: 1;
+    align-self: flex-end;
+    margin: auto 10px;
+    text-align: right;
+}
+
+.error {
+    color: red;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: -2px 0 yellow;
+    letter-spacing: 1px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px red;
+}
+
+.player {
+    margin-right: auto;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.player__score::before {
+    content: attr(data-val);
+}
+
+.player__level::before {
+    content: attr(data-val);
+}
+
+.player__monster-health::before {
+    content: attr(data-val);
+}
+
+.game {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.game__enemy {
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    cursor: pointer;
+    animation: enemy 2s linear infinite;
+}
+
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__content {
+    width: 400px;
+    padding: 50px 20px;
+    border-radius: 10px;
+    text-align: center;
+    background: #fffbe4; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fffbe4 0%, #fffbbb 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #fffbe4 0%,#fffbbb 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #fffbe4 0%,#fffbbb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.modal__title {
+    color: #63f;
+}
+
+.modal__description {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.modal__result {
+    color: #f90;
+}
+
+.modal__button {
+    margin-top: 20px;
+    margin-top: 20px;
+    padding: 10px 50px;
+}
+
+@keyframes enemy {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(60px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
