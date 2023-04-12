@@ -7,6 +7,11 @@
     <title>Clicker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="prefetch" href="/img/level_1.jpg" />
+    <link rel="prefetch" href="/img/level_2.jpg" />
+    <link rel="prefetch" href="/img/level_3.png" />
+    <link rel="prefetch" href="/img/level_4.jpg" />
+    <link rel="prefetch" href="/img/level_5.jpg" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
@@ -36,13 +41,13 @@
                 </div>
 
                 <div class="register__row">
-                    <label class="register__label" for="password">Password</label>
-                    <input class="register__input" type="password" id="password" name="password" required>
+                    <label class="register__label" for="passwordRegister">Password</label>
+                    <input class="register__input" type="password" id="passwordRegister" name="password" required>
                 </div>
 
                 <div class="register__row">
-                    <label class="register__label" for="email">Email</label>
-                    <input class="register__input" type="email" id="email" name="email" required>
+                    <label class="register__label" for="emailRegister">Email</label>
+                    <input class="register__input" type="email" id="emailRegister" name="email" required>
                 </div>
 
                 <div class="register__row">
@@ -56,13 +61,13 @@
                 <h2 class="login__title">Login</h2>
 
                 <div class="login__row">
-                    <label class="login__label" for="email">Email</label>
-                    <input class="login__input" type="email" id="email" name="email" required>
+                    <label class="login__label" for="emailLogin">Email</label>
+                    <input class="login__input" type="email" id="emailLogin" name="email" required>
                 </div>
 
                 <div class="login__row">
-                    <label class="login__label" for="password">Password</label>
-                    <input class="login__input" type="password" id="password" name="password" required>
+                    <label class="login__label" for="passwordLogin">Password</label>
+                    <input class="login__input" type="password" id="passwordLogin" name="password" required>
                 </div>
 
                 <div class="login__row">
@@ -74,6 +79,7 @@
         <div id="error" class="error hidden"></div>
 
         <section id="game" class="game hidden">
+            <h1 class="hidden">Game</h1>
             <div id="attack" class="game__enemy"></div>
         </section>
 
