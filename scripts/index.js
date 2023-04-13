@@ -108,6 +108,9 @@ const DB = {
 (function () {
     Clicker = {
         config: {
+            levels: 5,
+            enemyBaseHealth: 5,
+            header: document.getElementById('header'),
             signIn: document.getElementById('signIn'),
             signUp: document.getElementById('signUp'),
             logout: document.getElementById('logout'),
@@ -128,6 +131,7 @@ const DB = {
             monsterHealth: document.getElementById('monsterHealth'),
             modal: document.getElementById('modal'),
             modalDescription: document.getElementById('modalDescription'),
+            hitSound: new Audio('../audio/hit.mp3'),
 
             user: {
                 fullname: null,
@@ -236,30 +240,12 @@ const DB = {
             this.config.game.classList.remove('hidden');
             this.config.playerInfo.classList.remove('hidden');
 
-            switch(level) {
-                case 1: {
-                    this.level_1(fullname, score);
-                    break;
-                }
-                case 2: {
-                    this.level_2(fullname, score);
-                    break;
-                }
-                case 3: {
-                    this.level_3(fullname, score);
-                    break;
-                }
-                case 4: {
-                    this.level_4(fullname, score);
-                    break;
-                }
-                case 5: {
-                    this.level_5(fullname, score);
-                    break;
-                }
-                default: {
-                    this.resetGame();
-                }
+            this.config.header.classList.add('header--game');
+
+            if (level <= this.config.levels) {
+                this.startLevel(fullname, score, level);
+            } else {
+                this.resetGame();
             }
         },
 
@@ -275,39 +261,11 @@ const DB = {
             DB.updateUser(this.config.user);
         },
 
-        level_1(fullname, score) {
-            this.showPlayerInfo(fullname, score, 1, 5);
+        startLevel(fullname, score, level) {
+            this.showPlayerInfo(fullname, score, level, level * this.config.enemyBaseHealth);
 
             this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
-            this.config.mainContainer.classList.add(this.config.mainContainerClasses[0]);
-        },
-
-        level_2(fullname, score) {
-            this.showPlayerInfo(fullname, score, 2, 10);
-
-            this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
-            this.config.mainContainer.classList.add(this.config.mainContainerClasses[1]);
-        },
-
-        level_3(fullname, score) {
-            this.showPlayerInfo(fullname, score, 3, 15);
-
-            this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
-            this.config.mainContainer.classList.add(this.config.mainContainerClasses[2]);
-        },
-
-        level_4(fullname, score) {
-            this.showPlayerInfo(fullname, score, 4, 20);
-
-            this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
-            this.config.mainContainer.classList.add(this.config.mainContainerClasses[3]);
-        },
-
-        level_5(fullname, score) {
-            this.showPlayerInfo(fullname, score, 5, 25);
-
-            this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
-            this.config.mainContainer.classList.add(this.config.mainContainerClasses[4]);
+            this.config.mainContainer.classList.add(this.config.mainContainerClasses[level - 1]);
         },
 
         levelCompleted(message) {
@@ -316,6 +274,7 @@ const DB = {
         },
 
         attack() {
+            this.config.hitSound.play();
             this.config.monsterHealth.textContent--;
             this.config.user.score = ++this.config.playerScore.textContent;
 
@@ -379,6 +338,8 @@ const DB = {
             this.config.playerInfo.classList.add('hidden');
             this.config.game.classList.add('hidden');
             this.config.mainContainer.classList.remove(...this.config.mainContainerClasses);
+
+            this.config.header.classList.remove('header--game');
 
             this.removeUser();
         },

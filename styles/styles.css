@@ -85,14 +85,6 @@ button {
     background-image: url(../img/enemy_5.png);
 }
 
-.container--level_1 .header,
-.container--level_2 .header,
-.container--level_3 .header,
-.container--level_4 .header,
-.container--level_5 .header {
-    background-color: rgba(0, 0, 0, .2);
-}
-
 .button {
     background: #45d724;
     color: #fff;
@@ -123,6 +115,10 @@ button {
     align-items: center;
     margin-bottom: 50px;
     padding: 10px 20px;;
+}
+
+.header--game {
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .register__form,
