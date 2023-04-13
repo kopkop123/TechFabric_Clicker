@@ -131,7 +131,7 @@ const DB = {
             monsterHealth: document.getElementById('monsterHealth'),
             modal: document.getElementById('modal'),
             modalDescription: document.getElementById('modalDescription'),
-            hitSound: new Audio('../audio/hit.mp3'),
+            hitSound: new Audio('../hit.mp3'),
 
             user: {
                 fullname: null,
