@@ -131,7 +131,6 @@ const DB = {
             monsterHealth: document.getElementById('monsterHealth'),
             modal: document.getElementById('modal'),
             modalDescription: document.getElementById('modalDescription'),
-            hitSound: new Audio('../hit.mp3'),
 
             user: {
                 fullname: null,
@@ -274,7 +273,6 @@ const DB = {
         },
 
         attack() {
-            this.config.hitSound.play();
             this.config.monsterHealth.textContent--;
             this.config.user.score = ++this.config.playerScore.textContent;
 
